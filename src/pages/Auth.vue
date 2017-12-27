@@ -1,25 +1,28 @@
 <template lang="html">
-  <div class="auth-container">
-    <h1>Sign up</h1>
-    <default-input
-      v-for="(form, index) in formArray"
-      :key="index"
-      :input-config="form"
-      @inputValueChanged="inputValueHandler"
-      @onInputFocus="inputFocusHandler"
-    />
-    <default-button
-      :disabled="1>2"
-      btnType="success"
-    >
-      Submit
-    </default-button>
-    <default-button
-      :disabled="1>2"
-      btnType="danger"
-    >
-      Cancel
-    </default-button>
+  <div class="fixed-container">
+    <div class="auth-container">
+      <h1>Sign up</h1>
+      <default-input
+        v-for="(form, index) in formArray"
+        :key="index"
+        :input-config="form"
+        @inputValueChanged="inputValueHandler"
+        @onInputFocus="inputFocusHandler"
+      />
+      <default-button
+        :disabled="1>2"
+        btnType="success"
+      >
+        Submit
+      </default-button>
+      <default-button
+        :disabled="1>2"
+        btnType="danger"
+      >
+        Cancel
+      </default-button>
+    </div>
+    <div class="background"></div>
   </div>
 </template>
 
@@ -135,8 +138,34 @@ export default {
 }
 </script>
 
-<style lang="css" slot-scoped>
+<style lang="css" scoped>
+
+.fixed-container {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+}
 .auth-container {
+  width: 300px;
+  border: 1px solid #ccc;
+  margin-top: 80px;
+  padding: 30px;
+  background-color: rgba(230,230,230, .9);
+  border-radius: 6px;
   text-align: center;
+  box-shadow: 1px 1px 1px 3px #bbb;
+}
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(../assets/bgc.jpg) no-repeat center center fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: -999;
+  filter: blur(3px);
 }
 </style>

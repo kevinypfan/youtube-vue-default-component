@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style lang="css" slot-scoped>
+<style lang="css" scoped>
   .btn {
     background-color: transparent;
     border: none;

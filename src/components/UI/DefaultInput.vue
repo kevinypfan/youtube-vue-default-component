@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="css" slot-scoped>
+<style lang="css" scoped>
 .input-container{
   margin-top: 20px;
   text-align: initial;
@@ -57,7 +57,7 @@ export default {
 .text-style {
   position: absolute;
   transform: scale(1) translate(10px, -54px);
-  color: #ccc;
+  color: #aaa;
   transition: .2s
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="container">
+    <div>
       <router-view></router-view>
     </div>
   </div>
@@ -17,9 +17,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container {
-  width: 50%;
-  margin: 20px auto
+  width: 1200px;
+  margin: 0 auto;
 }
 </style>
