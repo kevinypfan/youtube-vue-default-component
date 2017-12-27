@@ -6,7 +6,7 @@
         :id="inputConfig.id"
         :value="inputConfig.config.value"
         @input="updateValue($event, inputConfig.id)"
-        :class="{invalid: !inputConfig.config.valid}"
+        :class="{invalid: !inputConfig.config.valid && !inputConfig.config.onFocus && inputConfig.config.touched}"
         @focus="onFocus(inputConfig.id)"
         @blur="onBlur(inputConfig.id)"
       >
@@ -28,12 +28,9 @@ export default {
       this.$emit('inputValueChanged', event.target.value, id)
     },
     onFocus (id) {
-      console.log(id)
       this.$emit('onInputFocus', true, id)
     },
     onBlur (id) {
-      console.log('blur')
-
       this.$emit('onInputFocus', false, id)
     }
   }

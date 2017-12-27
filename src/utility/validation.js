@@ -15,7 +15,7 @@ const validate = (val, rules) => {
         isValid = isValid && maxLengthValidator(val, rules[rule])
         break;
       default:
-        isValid = true;
+        isValid = false;
     }
   }
   return isValid

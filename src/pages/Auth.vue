@@ -40,7 +40,6 @@ export default {
         email: {
           elConfig: {
             type: 'email',
-            placeholder: 'Enter your E-mail',
             label: "電子信箱"
           },
           value: '',
@@ -55,7 +54,6 @@ export default {
         password: {
           elConfig: {
             type: 'password',
-            placeholder: 'Enter your password',
             label: "密碼"
           },
           value: '',
@@ -71,7 +69,6 @@ export default {
         comfirm: {
           elConfig: {
             type: 'password',
-            placeholder: 'Enter your password again',
             label: "確認密碼"
           },
           value: '',
@@ -86,7 +83,6 @@ export default {
         name: {
           elConfig: {
             type: 'text',
-            placeholder: 'Enter your Name',
             label: "姓名"
           },
           value: '',
@@ -133,7 +129,6 @@ export default {
           onFocus: bool
         }
       }
-      console.log(newForms)
       this.forms = newForms
     }
   }
