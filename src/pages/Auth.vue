@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="fixed-container">
+  <div>
     <div class="auth-container">
       <h1>Sign up</h1>
       <default-input
@@ -140,18 +140,13 @@ export default {
 
 <style lang="css" scoped>
 
-.fixed-container {
-  width: 100%;
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  justify-content: center;
-  -ms-align-items: center;
-}
 .auth-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 300px;
   border: 1px solid #ccc;
-  margin-top: 80px;
   padding: 30px;
   background-color: rgba(230,230,230, .9);
   border-radius: 6px;
