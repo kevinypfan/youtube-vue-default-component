@@ -1,12 +1,13 @@
 <template lang="html">
   <div>
     <div class="auth-container">
-      <h1>Signup</h1>
+      <h1>{{ authMode === 'Signup' ? 'Signup' : 'Login' }}</h1>
       <default-button
         :disabled="1>2"
         btnType="primary"
+        @clicked="switchHandler"
       >
-        Switch to Signin
+        Switch to {{ authMode === 'Signup' ? 'Signup' : 'Login' }}
       </default-button>
       <default-input
         v-for="(form, index) in formArray"
@@ -16,16 +17,11 @@
         @onInputFocus="inputFocusHandler"
       />
       <default-button
-        :disabled="1>2"
+        :disabled="!forms.comfirm.valid && authMode === 'Signup' || !forms.name.valid && authMode === 'Signup' || !forms.email.valid || !forms.password.valid"
         btnType="success"
+        @clicked="submitHandler"
       >
         Submit
-      </default-button>
-      <default-button
-        :disabled="1>2"
-        btnType="danger"
-      >
-        Cancel
       </default-button>
     </div>
     <div class="background"></div>
@@ -45,6 +41,7 @@ export default {
   },
   data () {
     return {
+      authMode: 'Signup',
       forms: {
         email: {
           elConfig: {
@@ -108,12 +105,26 @@ export default {
   computed: {
     formArray () {
       let array = []
+
       for (let key in this.forms) {
         array.push({
           id: key,
           config: this.forms[key]
         })
       }
+
+      if (this.authMode !== 'Signup') {
+        let loginForms = ['email', 'password']
+
+        return array.filter(ary => {
+          let flag = false
+          for(let key of loginForms) {
+            flag = flag || ary.id === key
+          }
+          return flag
+        })
+      }
+
       return array
     }
   },
@@ -163,6 +174,12 @@ export default {
         }
       }
       this.forms = newForms
+    },
+    switchHandler () {
+      this.authMode = this.authMode === 'Signup' ? 'Login' : 'Signup'
+    },
+    submitHandler () {
+      console.log('wubmit')
     }
   }
 }

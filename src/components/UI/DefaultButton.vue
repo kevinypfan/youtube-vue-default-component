@@ -3,6 +3,7 @@
     class="btn"
     :disabled="disabled"
     :class="btnType"
+    @click="$emit('clicked')"
   >
     <slot></slot>
   </button>
@@ -38,7 +39,7 @@ export default {
   }
 
   .btn:disabled {
-    color: #ccc;
+    color: #555;
     cursor: not-allowed;
   }
 </style>
