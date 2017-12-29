@@ -121,6 +121,13 @@ export default {
     inputValueHandler (value, id) {
       let connectedValue = {}
 
+      if (id === 'password') {
+        connectedValue = {
+          ...connectedValue,
+          equalTo: value
+        }
+      }
+
       if (this.forms[id].validation.equalTo) {
         const equalControl = this.forms[id].validation.equalTo;
         const equalValue = this.forms[equalControl].value;
@@ -132,6 +139,12 @@ export default {
 
       let newForms = {
         ...this.forms,
+        comfirm: {
+          ...this.forms.comfirm,
+          valid: id === 'password' ?
+            validate(this.forms.comfirm.value, this.forms.comfirm.validation, connectedValue)
+            : this.forms.comfirm.valid
+        },
         [id]: {
           ...this.forms[id],
           value,
