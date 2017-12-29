@@ -32,6 +32,11 @@ export default {
   .danger {
     color: red;
   }
+  .primary {
+    color: blue;
+    word-spacing: 7px;
+  }
+
   .btn:disabled {
     color: #ccc;
     cursor: not-allowed;

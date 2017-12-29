@@ -1,7 +1,13 @@
 <template lang="html">
   <div>
     <div class="auth-container">
-      <h1>Sign up</h1>
+      <h1>Signup</h1>
+      <default-button
+        :disabled="1>2"
+        btnType="primary"
+      >
+        Switch to Signin
+      </default-button>
       <default-input
         v-for="(form, index) in formArray"
         :key="index"
