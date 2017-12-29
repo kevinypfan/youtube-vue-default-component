@@ -119,13 +119,24 @@ export default {
   },
   methods: {
     inputValueHandler (value, id) {
+      let connectedValue = {}
+
+      if (this.forms[id].validation.equalTo) {
+        const equalControl = this.forms[id].validation.equalTo;
+        const equalValue = this.forms[equalControl].value;
+        connectedValue = {
+          ...connectedValue,
+          equalTo: equalValue
+        }
+      }
+
       let newForms = {
         ...this.forms,
         [id]: {
           ...this.forms[id],
           value,
           touched: true,
-          valid: validate(value, this.forms[id].validation)
+          valid: validate(value, this.forms[id].validation, connectedValue)
         }
       }
       this.forms = newForms

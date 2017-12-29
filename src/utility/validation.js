@@ -1,4 +1,4 @@
-const validate = (val, rules) => {
+const validate = (val, rules, connectedValue) => {
   let isValid = true;
   for (let rule in rules) {
     switch (rule) {
@@ -13,6 +13,9 @@ const validate = (val, rules) => {
         break;
       case 'maxLength':
         isValid = isValid && maxLengthValidator(val, rules[rule])
+        break;
+      case 'equalTo':
+        isValid = isValid && equalToValidator(val, connectedValue[rule])
         break;
       default:
         isValid = false;
