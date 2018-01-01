@@ -7,7 +7,7 @@
         btnType="primary"
         @clicked="switchHandler"
       >
-        Switch to {{ authMode === 'Signup' ? 'Signup' : 'Login' }}
+        Switch to {{ authMode === 'Signup' ? 'Login' : 'Signup' }}
       </default-button>
       <default-input
         v-for="(form, index) in formArray"
